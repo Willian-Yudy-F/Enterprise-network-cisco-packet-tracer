@@ -20,7 +20,8 @@ This project simulates a corporate network connecting five sites through a 5-rou
 
 ## Network topology
 
-![Network topology](<img width="1470" height="956" alt="Screenshot 2026-05-21 at 1 01 29 am" src="https://github.com/user-attachments/assets/7d2cbe79-244c-4636-a69f-5b0e2c4b6e67" />)
+![Network topology]
+<img width="1470" height="956" alt="Screenshot 2026-05-21 at 1 01 29 am" src="https://github.com/user-attachments/assets/7d2cbe79-244c-4636-a69f-5b0e2c4b6e67" /> 
 
 ## Services configured
 
