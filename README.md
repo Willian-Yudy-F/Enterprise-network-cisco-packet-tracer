@@ -1,63 +1,33 @@
-
-
 # Enterprise Multi-Site Network — Cisco Packet Tracer
 
-Multi-router enterprise network built in Cisco Packet Tracer as part of the *Networking Foundations* unit at AIT (Sydney).
+## In plain English
+Imagine a company with five offices and ten departments that all need to talk to each other, get an IP address automatically, find servers by name and open an internal website. This project builds that whole network inside **Cisco Packet Tracer** (a network simulator) and proves that every computer can reach every other one.
 
-## Overview
+Built for the *Foundation Networks* unit (CMP3044) of my Bachelor of IT at AIT Sydney. The scenario was a fictional company called **Kestrel Industries**.
 
-This project simulates a corporate network connecting five sites through a 5-router backbone, serving 10 departmental LANs with end-to-end connectivity, dynamic IP allocation via DHCP, name resolution through an internal DNS server, and an internal web service. The goal was to apply addressing, routing and core network services in a realistic enterprise topology.
+## What is in the network
 
-## Architecture
-
-**Routers (5):** Core, Admin, Ops, West, East
-
-**LANs (10):** Finance, Procurement, Sales, IT, HR, Executive, Engineering, R&D, CustomerA, CustomerB
-
-**WAN links:**
-- FastEthernet — Admin ↔ Core, Ops ↔ Core
-- Serial — Core ↔ West, Core ↔ East, West ↔ East
+| Part | Details |
+| --- | --- |
+| Routers (5) | Core, Admin, Ops, West, East |
+| Department LANs (10) | Finance, Procurement, Sales, IT, HR, Executive, Engineering, R&D, Customer A, Customer B |
+| WAN links | FastEthernet: Admin–Core, Ops–Core · Serial: Core–West, Core–East, West–East |
+| Services | DHCP (automatic IP addresses), DNS (names instead of numbers), internal web server, dynamic routing between the five routers |
 
 ## Network topology
 
-<img width="1470" height="956" alt="Screenshot 2026-05-21 at 1 01 29 am" src="https://github.com/user-attachments/assets/7d2cbe79-244c-4636-a69f-5b0e2c4b6e67" /> 
+<img width="1470" height="956" alt="Packet Tracer topology with five routers and ten LANs" src="https://github.com/user-attachments/assets/7d2cbe79-244c-4636-a69f-5b0e2c4b6e67" />
 
-## Services configured
-
-- **DHCP** — dynamic IP allocation across departmental LANs
-- **DNS** — internal name resolution
-- **Web server** — internal HTTP service reachable from all LANs
-- **Routing** — [coloca aqui: RIP / OSPF / ambos — o que você usou]
-
-## Addressing
-
-The address plan was designed using **VLSM** to match the host requirements of each LAN without wasting address space. Full subnet allocation is documented in `addressing.pdf` and `subnetting.pdf`.
-
-## Files in this repository
-
-| File | Description |
-|------|-------------|
-| `enterprise-network.pkt` | Cisco Packet Tracer project file |
-| `addressing.pdf` | IP addressing plan per LAN |
-| `subnetting.pdf` | VLSM derivation and subnet calculations |
-| `topology-screenshot.png` | Logical topology diagram |
-
-## How to open
-
-1. Install [Cisco Packet Tracer](https://www.netacad.com/courses/packet-tracer) (version 8.x or later)
-2. Open `enterprise-network.pkt`
-3. Use the *Simulation* mode to trace traffic between LANs
+## How the addressing was planned
+Each LAN has a different number of computers, so instead of giving every LAN the same block of addresses I used **VLSM (Variable Length Subnet Masking)**: bigger departments get bigger blocks, small ones get small blocks, and nothing is wasted. Every subnet was then tested with ping and traceroute from end to end.
 
 ## What I learned
+- How to turn a written business requirement into an IP address plan
+- Configuring routers, DHCP pools and a DNS server from the command line
+- Troubleshooting connectivity one hop at a time when a ping fails
 
-- Designing VLSM addressing plans for heterogeneous LAN sizes
-- Configuring dynamic routing across multi-router topologies
-- Deploying core network services (DHCP, DNS, HTTP) and validating end-to-end connectivity
-- Documenting network design for hand-off and review
+## Files
+This repository holds the write-up and the topology image. The Packet Tracer file (.pkt) and the subnetting tables were submitted through the university portal; ask me if you would like to see them.
 
 ---
-
-Built by [Willian Yudy Futema](https://github.com/Willian-Yudy-F) — IT student at AIT, Sydney.
-
-
-
+Willian Yudy Futema · [Portfolio](https://willian-yudy-f.github.io/) · [LinkedIn](https://www.linkedin.com/in/willian-yudy-futema/)
